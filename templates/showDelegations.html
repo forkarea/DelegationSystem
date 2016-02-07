@@ -1,0 +1,21 @@
+{include file='header.html'}
+<br/><br/><br/>
+<div class="container">
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Data dodania</th>
+        <th>Cel delegacji</th>
+        <th>Status</th>
+    </tr>
+    {foreach from=$delegations item=delegation}
+        <tr>
+            <td>{$delegation.delegationId}</td>
+            <td>{$delegation.addDate}</td>
+            <td>{$delegation.topic}</td>
+            <td>{$delegation.status}</td>
+        </tr>
+    {/foreach}
+</table>
+</div>
+{include file='footer.html'}

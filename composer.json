@@ -1,0 +1,16 @@
+{
+    "name": "krojecki/delegation",
+    "authors": [
+        {
+            "name": "Konrad Rojecki",
+            "email": "konrad.rojecki@gmail.com"
+        }
+    ],
+    "require": {
+        "components/jquery": "^2.2",
+        "smarty/smarty": "^3.1",
+        "symfony/routing": "^3.0",
+        "twbs/bootstrap": "^3.3",
+        "symfony/http-foundation": "^3.0"
+    }
+}
