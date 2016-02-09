@@ -2,20 +2,30 @@
 <br/><br/><br/>
 <div class="container">
 <table class="table table-striped">
-    <tr>
+    <tr class="text-capitalize">
         <th>Id</th>
         <th>Data dodania</th>
         <th>Cel delegacji</th>
         <th>Status</th>
+        <th>Akcje</th>
     </tr>
     {foreach from=$delegations item=delegation}
         <tr>
-            <td>{$delegation.delegationId}</td>
-            <td>{$delegation.addDate}</td>
-            <td>{$delegation.topic}</td>
-            <td>{$delegation.status}</td>
+            <td>{$delegation->id}</td>
+            <td>{$delegation->addDate}</td>
+            <td>{$delegation->topic}</td>
+            <td>{$delegation->getStatusName()}</td>
+            <td class="text-center">
+                <a class="glyphicon glyphicon-info-sign" href='{$tpl_dir}/index.php/show/{$delegation->id}'></a>
+                <a class="glyphicon glyphicon-pencil" href='{$tpl_dir}/index.php/edit/{$delegation->id}'></a>
+                <a class="glyphicon glyphicon-trash" href='{$tpl_dir}/index.php/delete/{$delegation->id}'></a>
+            </td>
         </tr>
     {/foreach}
 </table>
+</div>
+
+<div class="editButton">
+    <button type="button"><span class="glyphicon glyphicon-plus"></span></button>
 </div>
 {include file='footer.html'}

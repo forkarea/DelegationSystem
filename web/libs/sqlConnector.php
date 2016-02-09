@@ -29,6 +29,7 @@ class sqlConnector
 		}
 		else{
 			$this->connected = true;
+			$this->mysql->set_charset('utf8');
 		}
 	}
 
@@ -39,10 +40,22 @@ class sqlConnector
 
 	public function query($query)
 	{
+		$resultArr = array();
 		$result = $this->mysql->query($query);
 		while ($row = $result->fetch_assoc()) {
 			$resultArr[] = $row;
 		}
 		return $resultArr;
+	}
+
+	public function execute($query)
+	{
+		try {
+			$result = $this->mysql->query($query);
+		}catch(Exception $e)
+		{
+			$result = $e->getMessage();
+		}
+		return $result;
 	}
 }

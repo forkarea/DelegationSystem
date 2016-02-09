@@ -11,7 +11,7 @@
       <column name="delegationId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="addDate" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
       <column name="topic" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MTA="/>
       <column name="addUser" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="deleted" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
       <column name="loan" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
@@ -21,11 +21,41 @@
       <column name="deleagtionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="userId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
     </table>
+    <table name="delegationday" schema="" catalog="ds_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="date" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="food" sqlType="VARCHAR" precision="3" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nocleg" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="deleagtionId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="delegationroad" schema="" catalog="ds_db" type="TABLE">
+      <column name="roadId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="delegationId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="placeFrom" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="placeTo" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="deleted" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="distance" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="cost" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="transportMedium" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="dateStart" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="dateFinish" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="roadId"/>
+      <index name="unique_roadId" unique="true" columns="roadId"/>
+    </table>
     <table name="delegationstatus" schema="" catalog="ds_db" type="TABLE">
       <column name="statusId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="statusId"/>
       <index name="unique_statusId" unique="true" columns="statusId"/>
+    </table>
+    <table name="transportmedium" schema="" catalog="ds_db" type="TABLE">
+      <column name="mediumId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="costPerKm" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" def="MA=="/>
+      <primary-key name="PRIMARY" columns="mediumId"/>
+      <index name="unique_mediumId" unique="true" columns="mediumId"/>
     </table>
     <table name="users" schema="" catalog="ds_db" type="TABLE">
       <column name="userId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

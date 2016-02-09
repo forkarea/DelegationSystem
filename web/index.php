@@ -12,11 +12,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing;
 
+function myDump($a)
+{
+	echo"<pre>";
+	var_dump($a);
+	echo"</pre>";
+}
+
 // deleteIt... and use autoloader
 require('libs/sqlConnector.php');
 require('models/user.php');
 
 session_start();
+$domain = 'localhost';
 
 $request = Request::createFromGlobals();
 $routes = include 'routes.php';
@@ -33,7 +41,7 @@ $tpl->compile_dir = __DIR__ . "/../templates_c/";
 $tpl->assign('tpl_dir', $request->getBasePath());
 $siteName = 'DelegationSystem';
 $tpl->assign('siteName', $siteName);
-$user;
+$tpl->assign('pageName', $siteName);
 $Username = '';
 $loggedIn = false;
 if($_SESSION['loggedIn'])

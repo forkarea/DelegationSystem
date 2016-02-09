@@ -19,7 +19,8 @@ class User
 
 	public function isAdmin()
 	{
-		if($this->admin == 1) return false;
+		if($this->admin == 1) return true;
+		return false;
 	}
 
 	public static function getUser($id)

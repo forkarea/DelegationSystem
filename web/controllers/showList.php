@@ -8,7 +8,7 @@
 use models\Delegation;
 require "/models/delegation.php";
 
-$delegations = Delegation::getAll(false);
+$delegations = Delegation::getAll(true);
 
-$tpl->assign('delegations',$delegations);
+$tpl->assignByRef('delegations',$delegations);
 $tpl->display('showDelegations.html');
