@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-02-09 01:48:03
+/* Smarty version 3.1.29, created on 2016-02-09 10:27:03
   from "C:\xampp\htdocs\DelegationSystem\templates\header.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_56b93743eb11a5_68417422',
+  'unifunc' => 'content_56b9b0e701e658_97741210',
   'file_dependency' => 
   array (
     'dd746228de147fd9d2b3c9ed8737eaf4dbf16b04' => 
     array (
       0 => 'C:\\xampp\\htdocs\\DelegationSystem\\templates\\header.html',
-      1 => 1454978882,
+      1 => 1455010022,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_56b93743eb11a5_68417422 ($_smarty_tpl) {
+function content_56b9b0e701e658_97741210 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -58,7 +58,8 @@ function content_56b93743eb11a5_68417422 ($_smarty_tpl) {
 /index.php/'>Główna</a></li>
                 <li><a href='<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
 /index.php/list/1'>Delegacje</a></li>
-                <li><a href="#contact">Administracja</a></li>
+                <?php if ($_smarty_tpl->tpl_vars['admin']->value) {?><li><a href="<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
+/index.php/admin/1">Administracja</a></li><?php }?>
             </ul>
             <?php if ($_smarty_tpl->tpl_vars['loggedIn']->value == false) {?>
             <form class="navbar-form navbar-right" action="<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
@@ -78,9 +79,11 @@ function content_56b93743eb11a5_68417422 ($_smarty_tpl) {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_smarty_tpl->tpl_vars['Username']->value;?>
  <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Profil</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
+/index.php/profile">Profil</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="logout">Wyloguj</a></li>
+                            <li><a href="<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
+/index.php/logout">Wyloguj</a></li>
                         </ul>
                     </li>
                 </ul>

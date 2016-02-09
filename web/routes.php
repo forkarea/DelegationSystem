@@ -18,7 +18,10 @@ $routes->add('logout', new Route('/logout'));
 
 $routes->add('showList', new Route('/list/{page}', array( 'page' => 1)));
 $routes->add('showDelegation', new Route('/show/{id}', array( 'id' => 1)));
+$routes->add('addForm', new Route('/add/{action}', array( 'action'=>'add')));
 $routes->add('editForm', new Route('/edit/{id}/{action}', array( 'id' => 1, 'action'=>'edit')));
 $routes->add('delete', new Route('/delete/{id}', array( 'id' => -1)));
+
+$routes->add('userList', new Route('/admin/{page}', array( 'page' => 1)));
 
 return $routes;

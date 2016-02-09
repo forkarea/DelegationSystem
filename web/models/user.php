@@ -10,11 +10,20 @@ class User
 {
 	public $login;
 	public $admin;
+	public $deleted;
+	public $password;
+	public $id;
 
-	public function __construct($login, $admin)
+	public function __construct()
 	{
-		$this->login = $login;
-		$this->admin = $admin;
+	}
+
+	public function mapFromDbArray($result)
+	{
+		$this->id = $result['userId'];
+		$this->login = $result['username'];
+		$this->password = $result['password'];
+		$this->admin = $result['admin'];
 	}
 
 	public function isAdmin()
@@ -27,6 +36,34 @@ class User
 	{
 		global $sql;
 
-		return $sql->query('SELECT * FROM users WHERE userId = {$id}');
+		$result = $sql->query("SELECT * FROM users WHERE userId = {$id}");
+		$user = new User();
+		$user->mapFromDbArray($result[0]);
+		return $user;
 	}
+
+	public static function getUserByUsername($uid)
+	{
+		global $sql;
+		$result = $sql->query("SELECT * FROM users WHERE username = '{$uid}'");
+
+		$user = new User();
+		$user->mapFromDbArray($result[0]);
+		return $user;
+	}
+
+	public static function getAll()
+	{
+		global $sql;
+		$result = $sql->query("SELECT * FROM users");
+		$resultArr = array();
+		foreach ($result as $res) {
+			$user = new User();
+			$user->mapFromDbArray($res);
+			$resultArr[] = $user;
+		}
+
+		return $resultArr;
+	}
+
 }

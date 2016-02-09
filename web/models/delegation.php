@@ -21,7 +21,7 @@ class Delegation extends model
 	public $topic;
 	public $status;
 	public $addUser;
-	public $loan;
+	public $loan = 0;
 	private $deleted;
 
 	public $rides;
@@ -110,6 +110,11 @@ class Delegation extends model
 			  	WHERE delegationId = {$this->id}
 			";
 			$result = $sql->execute($query);
+		}
+
+		foreach($this->rides as $ride)
+		{
+			$ride->save($this->id);
 		}
 	}
 

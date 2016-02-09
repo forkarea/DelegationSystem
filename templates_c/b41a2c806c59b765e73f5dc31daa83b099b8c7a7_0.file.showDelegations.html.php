@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2016-02-09 03:07:26
+/* Smarty version 3.1.29, created on 2016-02-09 10:38:34
   from "C:\xampp\htdocs\DelegationSystem\templates\showDelegations.html" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_56b949de27c580_29209450',
+  'unifunc' => 'content_56b9b39ab00a81_52942227',
   'file_dependency' => 
   array (
     'b41a2c806c59b765e73f5dc31daa83b099b8c7a7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\DelegationSystem\\templates\\showDelegations.html',
-      1 => 1454983644,
+      1 => 1455010583,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
     'file:footer.html' => 1,
   ),
 ),false)) {
-function content_56b949de27c580_29209450 ($_smarty_tpl) {
+function content_56b9b39ab00a81_52942227 ($_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -56,7 +56,7 @@ $__foreach_delegation_0_saved_local_item = $_smarty_tpl->tpl_vars['delegation'];
 </td>
             <td><?php echo $_smarty_tpl->tpl_vars['delegation']->value->getStatusName();?>
 </td>
-            <td class="text-center">
+            <td>
                 <a class="glyphicon glyphicon-info-sign" href='<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
 /index.php/show/<?php echo $_smarty_tpl->tpl_vars['delegation']->value->id;?>
 '></a>
@@ -79,7 +79,8 @@ $_smarty_tpl->tpl_vars['delegation'] = $__foreach_delegation_0_saved_item;
 </div>
 
 <div class="editButton">
-    <button type="button"><span class="glyphicon glyphicon-plus"></span></button>
+    <button type="button" onClick='location.href = "<?php echo $_smarty_tpl->tpl_vars['tpl_dir']->value;?>
+/index.php/add"'><span class="glyphicon glyphicon-plus"></span></button>
 </div>
 <?php $_smarty_tpl->smarty->ext->_subtemplate->render($_smarty_tpl, "file:footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

@@ -47,11 +47,13 @@ $loggedIn = false;
 if($_SESSION['loggedIn'])
 {
 	$loggedIn = true;
-	$user = new \models\User($_SESSION['user'], $_SESSION['admin']);
-	$Username = $user->login;
+	$userLoggedIn = new \models\User();
+	$Username = $_SESSION['user'];
+	$admin = $_SESSION['admin'];
 }
 $tpl->assign('loggedIn', $loggedIn);
 $tpl->assign('Username', $Username);
+$tpl->assign('admin', $admin);
 
 $sql = new libs\sqlConnector();
 

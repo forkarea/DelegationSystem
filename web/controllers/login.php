@@ -6,15 +6,18 @@
  * Time: 15:30
  */
 
+require_once '/../models/user.php';
+use \models\User;
+
 $user = $request->get('login');
 $password = $request->get('password');
-$result = $sql->query("SELECT * FROM users WHERE username='{$user}'");
-if(isSet($result))
+$user = User::getUserByUsername($user);
+if(isSet($user))
 {
-	if(password_verify($password,$result[0]['password']))
+	if(password_verify($password,$user->password))
 	{
-		$_SESSION['user'] = $user;
-		$_SESSION['admin'] = $result[0]['admin'];
+		$_SESSION['user'] = $user->login;
+		$_SESSION['admin'] = $user->admin;
 		$_SESSION['loggedIn'] = true;
 		header('Location: '.str_replace('/login','/',$request->getUri()));
 	}
@@ -24,6 +27,4 @@ if(isSet($result))
 		header('Location: '.str_replace('/login','/',$request->getUri()));
 	}
 }
-
-header('Location: '.str_replace('/login','/',$request->getUri()));
 die();
